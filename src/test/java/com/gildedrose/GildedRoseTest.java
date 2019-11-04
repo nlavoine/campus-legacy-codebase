@@ -62,6 +62,45 @@ class GildedRoseTest {
         assertThat(app.items[0].quality).isEqualTo(0);
     }
 
+    /* CONJURED*/
+    @Test
+    void testConjuredQualityStandard() {
+        int quality = 20;
+        int sellIn = 10;
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality-2);
+    }
+    @Test
+    void testConjuredQualityStandardQty1() {
+        int quality = 1;
+        int sellIn = 10;
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(0);
+    }
+    @Test
+    void testConjuredQualityStandardSellIn0() {
+        int quality = 20;
+        int sellIn = 0;
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality-4);
+    }
+
+    @Test
+    void testConjuredQualityStandardSellIn0Qty3() {
+        int quality = 3;
+        int sellIn = 0;
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(0);
+    }
+
     /*AGED BRIE*/
     @Test
     void testAgedStandard() {

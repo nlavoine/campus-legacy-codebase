@@ -32,6 +32,11 @@ public class GildedRose {
                     item.sellIn  -= 1 ;
                     break;
 
+                case "Conjured Mana Cake":
+                    item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? ( itemQuality > 2 ? 2 : 1) : ( itemQuality > 4 ? 4 : item.quality)) :  0 ;
+                    item.sellIn  -= 1 ;
+                    break;
+
                 default:
                     item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? 1 : ( itemQuality > 1 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
