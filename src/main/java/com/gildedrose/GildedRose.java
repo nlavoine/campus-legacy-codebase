@@ -8,7 +8,40 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
+
+        for (Item item : items){
+
+            String itemName = item.name;
+            int itemQuality = item.quality;
+            int itemSellIn = item.sellIn;
+
+            switch (itemName){
+                case "Aged Brie":
+                    item.quality  += itemQuality < 50 ? (itemSellIn > 0 ? 1 : ( itemQuality < 49 ? 2 : 1)) :  0 ;
+                    item.sellIn  -= 1 ;
+                    break;
+
+                case "Sulfuras, Hand of Ragnaros":
+                    //item.sellIn  -= 1 ;
+                    break;
+
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    //item.quality  += itemSellIn > 0 ? (itemQuality <51 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) :  0) : item.quality* (-1) ;
+                    item.quality  += itemSellIn > 0 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) : item.quality* (-1) ;
+                    item.quality = item.quality>50 ? 50 : item.quality;
+                    item.sellIn  -= 1 ;
+                    break;
+
+                default:
+                    item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? 1 : ( itemQuality > 1 ? 2 : 1)) :  0 ;
+                    item.sellIn  -= 1 ;
+
+            }
+        }
+
+
+
+        /*for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality > 0) {
@@ -57,7 +90,7 @@ public class GildedRose {
                     }
                 }
             }
-        }
+        }*/// ENDFOR
     }
 
     public Item[] getItems() {
