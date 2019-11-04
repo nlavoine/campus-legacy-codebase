@@ -1,6 +1,11 @@
 package com.gildedrose;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class GildedRose {
+    final Logger logger = LoggerFactory.getLogger(GildedRose.class);
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -9,6 +14,7 @@ public class GildedRose {
 
     public void updateQuality() {
 
+        logger.info("Updating quality...");
         for (Item item : items){
 
             String itemName = item.name;
@@ -19,27 +25,31 @@ public class GildedRose {
                 case "Aged Brie":
                     item.quality  += itemQuality < 50 ? (itemSellIn > 0 ? 1 : ( itemQuality < 49 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
+                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Sulfuras, Hand of Ragnaros":
                     //item.sellIn  -= 1 ;
+                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    //item.quality  += itemSellIn > 0 ? (itemQuality <51 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) :  0) : item.quality* (-1) ;
                     item.quality  += itemSellIn > 0 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) : item.quality* (-1) ;
                     item.quality = item.quality>50 ? 50 : item.quality;
                     item.sellIn  -= 1 ;
+                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Conjured Mana Cake":
-                    item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? ( itemQuality > 2 ? 2 : 1) : ( itemQuality > 4 ? 4 : item.quality)) :  0 ;
+                    item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? ( itemQuality > 1 ? 2 : 1) : ( itemQuality > 3 ? 4 : item.quality)) :  0 ;
                     item.sellIn  -= 1 ;
+                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 default:
                     item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? 1 : ( itemQuality > 1 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
+                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
 
             }
         }
