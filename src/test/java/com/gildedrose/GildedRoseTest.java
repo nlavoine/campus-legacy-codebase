@@ -100,6 +100,15 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(0);
     }
+    @Test
+    void testConjuredQualityStandardWithSpecialName() {
+        int quality = 20;
+        int sellIn = 10;
+        Item[] items = new Item[] { new Item("Like Conjured", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality-1);
+    }
 
     /*AGED BRIE*/
     @Test

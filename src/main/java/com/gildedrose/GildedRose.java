@@ -20,6 +20,7 @@ public class GildedRose {
             String itemName = item.name;
             itemName = itemName.contains("Conjured") && !itemName.contains("Like Conjured") ? "Conjured" : itemName;
 
+            item.quality = item.quality > 50 ? 50 : item.quality;
             int itemQuality = item.quality;
             int itemSellIn = item.sellIn;
             logger.debug("Item is {}, SellIn : {}, Quality : {}", itemName, itemSellIn, itemQuality);
