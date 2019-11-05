@@ -18,6 +18,7 @@ public class GildedRose {
         for (Item item : items){
 
             String itemName = item.name;
+            itemName = itemName.contains("Conjured") && !itemName.contains("Conjured") ? "Conjured" : itemName;
             int itemQuality = item.quality;
             int itemSellIn = item.sellIn;
 
@@ -25,11 +26,10 @@ public class GildedRose {
                 case "Aged Brie":
                     item.quality  += itemQuality < 50 ? (itemSellIn > 0 ? 1 : ( itemQuality < 49 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
-                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
+                    logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Sulfuras, Hand of Ragnaros":
-                    //item.sellIn  -= 1 ;
                         logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
@@ -37,19 +37,19 @@ public class GildedRose {
                     item.quality  += itemSellIn > 0 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) : item.quality* (-1) ;
                     item.quality = item.quality>50 ? 50 : item.quality;
                     item.sellIn  -= 1 ;
-                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
+                    logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
-                case "Conjured Mana Cake":
+                case "Conjured":
                     item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? ( itemQuality > 1 ? 2 : 1) : ( itemQuality > 3 ? 4 : item.quality)) :  0 ;
                     item.sellIn  -= 1 ;
-                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
+                    logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 default:
                     item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? 1 : ( itemQuality > 1 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
-                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
+                    logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
 
             }
         }
