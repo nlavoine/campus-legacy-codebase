@@ -205,6 +205,102 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(0);
     }
+    /*WINE*/
+    @Test
+    void testWineStandard() {
+        int quality = 10;
+        int sellIn = 600;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+
+        //int age = 0;
+
+        for(int age = 0; age <= sellIn; age++){
+
+            if(age <=300){
+                assertThat(app.items[0].quality).isEqualTo(quality+age);
+            }else if(age > 300 && age <= 600 ){
+                assertThat(app.items[0].quality).isEqualTo(quality+300);
+            }else if (age > 600){
+                assertThat(app.items[0].quality).isEqualTo(quality + 300 - (age - 600));
+            }
+            app.updateQuality();
+        }
+
+
+
+
+
+        /*for (int i = sellIn; i > -300; i-- ){
+            app.updateQuality();
+            age ++;
+
+
+            if(i >= 300 ){
+                assertThat(app.items[0].quality).isEqualTo(quality+age);
+            }else if(i >= 0 && i < 300){
+                assertThat(app.items[0].quality).isEqualTo(quality+300);
+            }else{
+                assertThat(app.items[0].quality).isEqualTo(quality+300 - (age - 300));
+            }
+
+        }*/
+
+    }
+    /*@Test
+    void testWineStandardSellIn450() {
+        int quality = 160;
+        int sellIn = 450;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality+1);
+    }
+    @Test
+    void testWineStandardSellIn300() {
+        int quality = 10;
+        int sellIn = 300;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality);
+    }
+    @Test
+    void testWineStandardSellIn150() {
+        int quality = 10;
+        int sellIn = 150;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality+300);
+    }
+    @Test
+    void testWineStandardSellIn0() {
+        int quality = 10;
+        int sellIn = 0;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality+300);
+    }
+    @Test
+    void testWineStandardSellInNeg150() {
+        int quality = 10;
+        int sellIn = -150;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality+150);
+    }
+    @Test
+    void testWineStandardSellInNeg300() {
+        int quality = 10;
+        int sellIn = -150;
+        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(quality);
+    }*/
 
 
 

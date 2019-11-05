@@ -63,6 +63,17 @@ public class GildedRose {
                 System.out.println("le sulfuras ne s'altère jamais");
             }
 
+
+//**************************************cas du wine****************************************************
+
+            else if (items[i].name.equals("Red wine")) {
+                logger.info("il s'agit du vin");
+                if ( items[i].sellIn >= 300 && items[i].sellIn <= 600) {
+                    items[i].quality += 1;
+                }else if ( items[i].sellIn < 0 && items[i].quality >0) {
+                    items[i].quality -= 1;
+                }
+            }
 //*********************************cas des produits conjured + autres cas****************************************************
 
             else {
