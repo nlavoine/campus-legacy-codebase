@@ -70,7 +70,7 @@ public class GildedRose {
                 logger.info("il s'agit du vin");
                 if ( items[i].sellIn >= 300 && items[i].sellIn <= 600) {
                     items[i].quality += 1;
-                }else if ( items[i].sellIn < 0 && items[i].quality >0) {
+                }else if ( items[i].sellIn < 0) {
                     items[i].quality -= 1;
                 }
             }
