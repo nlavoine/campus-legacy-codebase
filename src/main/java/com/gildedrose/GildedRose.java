@@ -18,7 +18,7 @@ public class GildedRose {
         for (Item item : items){
 
             String itemName = item.name;
-            itemName = itemName.contains("Conjured") && !itemName.contains("Conjured") ? "Conjured" : itemName;
+            itemName = itemName.contains("Conjured") && !itemName.contains("Like Conjured") ? "Conjured" : itemName;
             int itemQuality = item.quality;
             int itemSellIn = item.sellIn;
 
