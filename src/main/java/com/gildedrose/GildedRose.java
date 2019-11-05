@@ -25,16 +25,21 @@ public class GildedRose {
 
             switch (itemName){
                 case "Aged Brie":
+                    logger.debug("Case Aged Brie");
                     item.quality  += itemQuality < 50 ? (itemSellIn > 0 ? 1 : ( itemQuality < 49 ? 2 : 1)) :  0 ;
                     item.sellIn  -= 1 ;
                     logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Sulfuras, Hand of Ragnaros":
-                        logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
+                    logger.debug("Case Sulfuras, Hand of Ragnaros");
+
+                    logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
                     break;
 
                 case "Backstage passes to a TAFKAL80ETC concert":
+                    logger.debug("Case Backstage passes to a TAFKAL80ETC concert");
+
                     item.quality  += itemSellIn > 0 ? (itemSellIn <11 ? (itemSellIn < 6 ? 3 : 2) : 1) : item.quality* (-1) ;
                     item.quality = item.quality>50 ? 50 : item.quality;
                     item.sellIn  -= 1 ;
@@ -42,6 +47,8 @@ public class GildedRose {
                     break;
 
                 case "Conjured":
+                    logger.debug("Case Conjured");
+
                     item.quality  -= itemQuality > 0 ? (itemSellIn > 0 ? ( itemQuality > 1 ? 2 : 1) : ( itemQuality > 3 ? 4 : item.quality)) :  0 ;
                     item.sellIn  -= 1 ;
                     logger.debug("Item {} quality was {}, is now {}", itemName, itemQuality, item.quality);
