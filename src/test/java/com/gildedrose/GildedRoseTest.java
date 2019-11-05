@@ -160,6 +160,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(quality+1);
     }
+    @Test
     void testBackstageStandardQty50() {
         int quality = 50;
         int sellIn = 80;
@@ -168,6 +169,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(quality);
     }
+    @Test
     void testBackstageStandardSellInLt10() {
         int quality = 20;
         int sellIn = 9;
@@ -176,6 +178,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(quality+2);
     }
+    @Test
     void testBackstageStandardSellInLt5() {
         int quality = 20;
         int sellIn = 4;
@@ -184,6 +187,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(quality+3);
     }
+    @Test
     void testBackstageStandardSellIn0() {
         int quality = 20;
         int sellIn = 0;

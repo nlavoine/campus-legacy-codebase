@@ -19,9 +19,10 @@ public class GildedRose {
 
             String itemName = item.name;
             itemName = itemName.contains("Conjured") && !itemName.contains("Like Conjured") ? "Conjured" : itemName;
-            logger.debug("Item is {} ", itemName);
+
             int itemQuality = item.quality;
             int itemSellIn = item.sellIn;
+            logger.debug("Item is {}, SellIn : {}, Quality : {}", itemName, itemSellIn, itemQuality);
 
             switch (itemName){
                 case "Aged Brie":
