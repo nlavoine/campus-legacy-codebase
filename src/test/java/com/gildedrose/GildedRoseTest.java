@@ -210,7 +210,7 @@ class GildedRoseTest {
     void testWineStandard() {
         int quality = 10;
         int sellIn = 600;
-        Item[] items = new Item[] { new Item("Red wine", sellIn, quality) };
+        Item[] items = new Item[] { new Item("Red red wine", sellIn, quality) };
         GildedRose app = new GildedRose(items);
 
         //int age = 0;

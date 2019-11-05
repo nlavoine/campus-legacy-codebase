@@ -66,7 +66,7 @@ public class GildedRose {
 
 //**************************************cas du wine****************************************************
 
-            else if (items[i].name.equals("Red wine")) {
+            else if (items[i].name.equals("Red red wine")) {
                 logger.info("il s'agit du vin");
                 if ( items[i].sellIn >= 300 && items[i].sellIn <= 600) {
                     items[i].quality += 1;
